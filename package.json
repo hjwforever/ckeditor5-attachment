@@ -1,7 +1,6 @@
 {
   "name": "ckeditor5-attachment",
-  "version": "1.0.3",
-  "private": true,
+  "version": "1.0.4",
   "description": "Ckeditor 5 with integrated attachment uploadand fullscreen.",
   "keywords": [
     "ckeditor",
@@ -24,16 +23,13 @@
   ],
   "author": "hjwforever<https://github.com/hjwforever>",
   "main": "./build/ckeditor.js",
-  "files": [
-    "build",
-    "docs",
-    "sample"
-  ],
   "packageManager": "pnpm@7.13.5",
   "scripts": {
     "build": "webpack --mode production"
   },
   "devDependencies": {
+    "@babel/core": "^7.19.3",
+    "@babel/preset-env": "^7.19.4",
     "@ckeditor/ckeditor5-alignment": "^35.1.0",
     "@ckeditor/ckeditor5-autoformat": "^35.1.0",
     "@ckeditor/ckeditor5-basic-styles": "^35.1.0",
@@ -67,6 +63,7 @@
     "@ckeditor/ckeditor5-typing": "^35.1.0",
     "@ckeditor/ckeditor5-upload": "^35.1.0",
     "@ckeditor/ckeditor5-word-count": "^35.1.0",
+    "babel-loader": "^8.2.5",
     "css-loader": "^5.2.7",
     "postcss": "^8.4.16",
     "postcss-loader": "^4.3.0",

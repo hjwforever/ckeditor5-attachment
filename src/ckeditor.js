@@ -203,6 +203,12 @@ Editor.defaultConfig = {
     onProgress: ({ uploadTotal, uploaded }) => {
       console.log('onProgress', { uploadTotal, uploaded })
     },
+    onFinish: (event) => {
+      console.log('onFinish', event)
+    },
+    onTimeout: (event) => {
+      // console.log('onTimeout', event)
+    },
     // interceptor: (response) => {
     //   return new Promise((resolve, reject) => {
     //     if (!response?.data?.url) {

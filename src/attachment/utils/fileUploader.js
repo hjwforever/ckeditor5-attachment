@@ -7,6 +7,8 @@ class CustomUploadAdapter {
     this.options = Object.assign({}, editor.config.get(CUSTOM_CONFIG_NAME), options)
     this.debugLog = this.options.debugLog ? debugLog : () => {}
     this.onProgressFn = this.options.onProgress
+    this.onFinishFn = this.options.onFinish
+    this.onTimeoutFn = this.options.onTimeout
   }
 
   // Starts the upload process.
@@ -92,6 +94,14 @@ class CustomUploadAdapter {
           this.debugLog(loader, loader)
           getType(this.onProgressFn) === 'Function' && this.onProgressFn(loader)
         }
+      })
+      xhr.upload.addEventListener('timeout', (evt) => {
+        this.debugLog('upload timeout', evt)
+        getType(this.onTimeoutFn) === 'Function' && this.onTimeoutFn(evt)
+      })
+      xhr.upload.addEventListener('load', (evt) => {
+        this.debugLog('upload success')
+        getType(this.onFinishFn) === 'Function' && this.onFinishFn(evt)
       })
     }
   }
