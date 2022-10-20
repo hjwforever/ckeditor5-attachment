@@ -40,7 +40,7 @@ and more...
 use as the same as [classic-editor5-usage](https://ckeditor.com/docs/ckeditor5/latest/installation/getting-started/quick-start.html)
 
 ```
-<script src="https://unpkg.com/browse/ckeditor5-attachment@1.0.4/build/ckeditor.js"></script>
+<script src="https://unpkg.com/browse/ckeditor5-attachment@1.0.5/build/ckeditor.js"></script>
 
 <body>
   <h1>Classic editor</h1>

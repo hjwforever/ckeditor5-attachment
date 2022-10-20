@@ -41,6 +41,7 @@ specifiers:
   postcss: ^8.4.16
   postcss-loader: ^4.3.0
   raw-loader: ^4.0.2
+  regenerator-runtime: ^0.13.10
   style-loader: ^2.0.0
   terser-webpack-plugin: ^4.2.3
   webpack: ^5.74.0
@@ -87,6 +88,7 @@ devDependencies:
   postcss: 8.4.18
   postcss-loader: 4.3.0_igyeriywjd4lwzfk4socqbj2qi
   raw-loader: 4.0.2_webpack@5.74.0
+  regenerator-runtime: 0.13.10
   style-loader: 2.0.0_webpack@5.74.0
   terser-webpack-plugin: 4.2.3_webpack@5.74.0
   webpack: 5.74.0_webpack-cli@4.10.0

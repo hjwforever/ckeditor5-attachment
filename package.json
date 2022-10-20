@@ -1,6 +1,6 @@
 {
   "name": "ckeditor5-attachment",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "Ckeditor 5 with integrated attachment uploadand fullscreen.",
   "keywords": [
     "ckeditor",
@@ -68,6 +68,7 @@
     "postcss": "^8.4.16",
     "postcss-loader": "^4.3.0",
     "raw-loader": "^4.0.2",
+    "regenerator-runtime": "^0.13.10",
     "style-loader": "^2.0.0",
     "terser-webpack-plugin": "^4.2.3",
     "webpack": "^5.74.0",
