@@ -1,0 +1,25 @@
+.attachment {
+  /* display: inline-block; */
+  /* display:  flex;
+  align-items: center; */
+  background-color: #f1f1f1;
+  margin: 0 1px;
+  padding: 4px;
+  outline-offset: -2px;
+  border-radius: 3px;
+  line-height: 1em;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.attachment::selection {
+  display: none;
+}
+
+.attachment-icon {
+  margin-right: 0.1em;
+  width: 1em;
+  min-height: 0;
+  min-width: 0;
+  transform: translateY(0.1em);
+}

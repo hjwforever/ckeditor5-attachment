@@ -1,0 +1,5 @@
+.ck-editor__main.ck-fullscreen,
+.ck-editor__main.ck-fullscreen > .ck-content {
+  width: 100%;
+  height: 100%;
+}

@@ -1,0 +1,14 @@
+.ck.ck-attachment-form {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: row;
+  flex-wrap: nowrap;
+}
+
+.ck.ck-attachment-form > .ck-labeled-field-view {
+  display: inline-block;
+}
+
+.ck.ck-attachment-form > .ck-label {
+  display: none;
+}

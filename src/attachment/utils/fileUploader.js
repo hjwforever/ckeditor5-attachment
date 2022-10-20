@@ -1,0 +1,116 @@
+import { getType, debugLog } from './index'
+
+class CustomUploadAdapter {
+  constructor(editor, file, options = {}) {
+    const CUSTOM_CONFIG_NAME = 'attachmentConfig'
+    this.file = file
+    this.options = Object.assign({}, editor.config.get(CUSTOM_CONFIG_NAME), options)
+    this.debugLog = this.options.debugLog ? debugLog : () => {}
+    this.onProgressFn = this.options.onProgress
+  }
+
+  // Starts the upload process.
+  upload() {
+    if (!this.file) {
+      console.error('file is required')
+      return
+    }
+    return new Promise((resolve, reject) => {
+      this._initRequest()
+      this._initListeners(resolve, reject, this.file)
+      this._sendRequest(this.file)
+    })
+  }
+
+  // Aborts the upload process.
+  abort() {
+    if (this.xhr) {
+      this.xhr.abort()
+    }
+  }
+
+  // Initializes the XMLHttpRequest object using the URL passed to the constructor.
+  _initRequest() {
+    const xhr = (this.xhr = new XMLHttpRequest())
+
+    // Note that your request may look different. It is up to you and your editor
+    // integration to choose the right communication channel. This example uses
+    // a POST request with JSON as a data structure but your configuration
+    // could be different.
+    xhr.open('POST', this.options.uploadUrl, true)
+    xhr.responseType = 'json'
+  }
+
+  // Initializes XMLHttpRequest listeners.
+  _initListeners(resolve, reject, file) {
+    const xhr = this.xhr
+    const genericErrorText = `Couldn't upload file: ${file.name}.`
+
+    xhr.addEventListener('error', () => reject(genericErrorText))
+    xhr.addEventListener('abort', () => reject())
+    xhr.addEventListener('load', async () => {
+      const response = xhr.response
+
+      // This example assumes the XHR server's "response" object will come with
+      // an "error" which has its own "message" that can be passed to reject()
+      // in the upload promise.
+      //
+      // Your integration may handle upload errors in a different way so make sure
+      // it is done properly. The reject() function must be called when the upload fails.
+      if (!response || response.error) {
+        return reject(response && response.error ? response.error.message : genericErrorText)
+      }
+
+      if (!response?.data?.url) {
+        return reject('response.data.url is empty:' + response.toString())
+      }
+
+      // If the upload is successful, resolve the upload promise with an object containing
+      // at least the "default" URL, pointing to the image on the server.
+      // This URL will be used to display the image in the content. Learn more in the
+      // UploadAdapter#upload documentation.
+
+      const result = this.options.interceptor
+        ? await this.options.interceptor(response)
+        : {
+            default: response.data.url,
+          }
+      this.debugLog('response', response, 'interceptor:', result)
+
+      resolve(result)
+    })
+
+    // Upload progress when it is supported. The file loader has the #uploadTotal and #uploaded
+    // properties which are used e.g. to display the upload progress bar in the editor
+    // user interface.
+    if (xhr.upload) {
+      xhr.upload.addEventListener('progress', (evt) => {
+        if (evt.lengthComputable) {
+          const loader = {}
+          loader.uploadTotal = evt.total
+          loader.uploaded = evt.loaded
+          this.debugLog(loader, loader)
+          getType(this.onProgressFn) === 'Function' && this.onProgressFn(loader)
+        }
+      })
+    }
+  }
+
+  // Prepares the data and sends the request.
+  _sendRequest(file) {
+    // Prepare the form data.
+    const data = new FormData()
+
+    data.append('file', file) // ! upload type is "file"
+
+    // Important note: This is the right place to implement security mechanisms
+    // like authentication and CSRF protection. For instance, you can use
+    // XMLHttpRequest.setRequestHeader() to set the request headers containing
+    // the CSRF token generated earlier by your application.
+
+    // Send the request.
+    this.xhr.send(data)
+  }
+}
+
+export { CustomUploadAdapter }
