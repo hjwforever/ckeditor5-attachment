@@ -64,13 +64,13 @@ devDependencies:
   '@ckeditor/ckeditor5-heading': 35.2.1
   '@ckeditor/ckeditor5-highlight': 35.2.1
   '@ckeditor/ckeditor5-html-embed': 35.2.1
-  '@ckeditor/ckeditor5-html-support': 35.2.0
+  '@ckeditor/ckeditor5-html-support': 35.2.1
   '@ckeditor/ckeditor5-image': 35.2.1
   '@ckeditor/ckeditor5-indent': 35.2.1
   '@ckeditor/ckeditor5-language': 35.2.1
   '@ckeditor/ckeditor5-link': 35.2.1
   '@ckeditor/ckeditor5-list': 35.2.1
-  '@ckeditor/ckeditor5-markdown-gfm': 35.2.0
+  '@ckeditor/ckeditor5-markdown-gfm': 35.2.1
   '@ckeditor/ckeditor5-media-embed': 35.2.1
   '@ckeditor/ckeditor5-mention': 35.2.1
   '@ckeditor/ckeditor5-paragraph': 35.2.1
@@ -1425,8 +1425,8 @@ packages:
       ckeditor5: 35.2.1
     dev: true
 
-  /@ckeditor/ckeditor5-html-support/35.2.0:
-    resolution: {integrity: sha512-B34xHgquHjYdh4AfR1JXy3plqFPWi6iuc/vrgJmGl+QneJrUS8u+HCkH6KJMCO2nFdjW64NR4q7gs2D67aW0sA==}
+  /@ckeditor/ckeditor5-html-support/35.2.1:
+    resolution: {integrity: sha512-AxVm+LDQYGK1vEfRPwoUq7ov3q/Ev9A2/Wi3d2FGe2BbwRqOzRWxog4exWi9qByED3+ltcxhNq7cY2OHYBzFnw==}
     engines: {node: '>=14.0.0', npm: '>=5.7.1'}
     dependencies:
       ckeditor5: 35.2.1
@@ -1473,8 +1473,8 @@ packages:
       ckeditor5: 35.2.1
     dev: true
 
-  /@ckeditor/ckeditor5-markdown-gfm/35.2.0:
-    resolution: {integrity: sha512-KxIBvXXrdmBK6WFr4KLaSv+gcqlnYbZR5NwWdo/kPmsm5+VndzQigvqJhz3hZ1T1OEt/D+6siWMrmQkHjtXAWA==}
+  /@ckeditor/ckeditor5-markdown-gfm/35.2.1:
+    resolution: {integrity: sha512-SKsJwl0rPtBgoEzrvcid0NF0fQN7JvQBbCwyT8vGSKpDko30R+Ij6yLRfYQseZKQU60CkPsf+QvorP7A0dZv9w==}
     engines: {node: '>=14.0.0', npm: '>=5.7.1'}
     dependencies:
       ckeditor5: 35.2.1
@@ -4507,6 +4507,7 @@ packages:
 
   /w3c-hr-time/1.0.2:
     resolution: {integrity: sha512-z8P5DvDNjKDoFIHK7q8r8lackT6l+jo/Ye3HOle7l9nICP9lf1Ci25fy9vHd0JOWewkIFzXIEig3TdKT7JQ5fQ==}
+    deprecated: Use your platform's native performance.now() and performance.timeOrigin.
     dependencies:
       browser-process-hrtime: 1.0.0
     dev: true

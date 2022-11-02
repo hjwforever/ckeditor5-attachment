@@ -38,7 +38,7 @@ and more...
 
 ```
 // import CustomEditor from 'ckeditor5-attachment'
-<script src="https://unpkg.com/browse/ckeditor5-attachment@1.0.5/build/ckeditor.js"></script>
+<script src="https://unpkg.com/browse/ckeditor5-attachment@1.0.6/build/ckeditor.js"></script>
 
 <body>
   <h1>Classic editor</h1>

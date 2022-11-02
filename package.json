@@ -1,6 +1,6 @@
 {
   "name": "ckeditor5-attachment",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "Ckeditor 5 with integrated attachment uploadand fullscreen.",
   "keywords": [
     "ckeditor",
@@ -24,6 +24,9 @@
   "author": "hjwforever<https://github.com/hjwforever>",
   "main": "./build/ckeditor.js",
   "packageManager": "pnpm@7.13.5",
+  "files":[
+    "build"
+  ],
   "scripts": {
     "build": "webpack --mode production"
   },
